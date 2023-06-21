@@ -31,4 +31,7 @@ router.get('/service', function(req, res, next) {
   res.render('index', { title: 'Service' });
 });
 
+router.get('/student', function(req, res, next) {
+  res.render('index', { title: 'Studnet' });
+});
 module.exports = router;

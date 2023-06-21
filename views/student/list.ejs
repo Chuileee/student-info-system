@@ -1,0 +1,48 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/top_nav.ejs %>
+ 
+<main class="container">
+    <br>
+    <a href="/students/add" class="btn btn-primary"><i class="fa-solid fa-plus fa-lg"></i> Add Student</a>
+    <br>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Major</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Updated Date</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let index = 0; index < StudentList.length; index++) { %>
+                <tr>
+                    <td><%= StudentList[index].name %></td>
+                    <td><%= StudentList[index].age %></td>
+                    <td><%= StudentList[index].major %></td>
+                    <!--<td><%= StudentList[index].createdDate ? StudentList[index].createdDate.toDateString() : 'N/A' %></td> 
+                    <td><%= StudentList[index].updatedDate ? StudentList[index].updatedDate.toDateString() : 'N/A' %></td>-->
+                    <td><%= new Date(StudentList[index].createdDate).toLocaleString() %></td>
+                    <td><%= new Date(StudentList[index].updatedDate).toLocaleString() %></td>
+                    <td>
+                      <a href="/students/edit/<%= StudentList[index].id %>" class="btn btn-info btn-sm"><i class="fa-solid fa-file-pen fa-lg"></i> Edit</a>
+                    </td>
+
+                    <td>
+                      <a href="/students/delete/<%= StudentList[index].id %>" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure you want to delete this student?')"><i class="fa-solid fa-trash fa-lg"></i> Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+          </tbody>
+    </table>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+

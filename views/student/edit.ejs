@@ -1,0 +1,27 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/top_nav.ejs %>
+
+<main class="container">
+    <form class="form" method="POST">
+        <div class="form-group">
+          <label for="pname">Product Name:</label>
+          <input type="text" class="form-control" id="sname" name="sname" value="<%= student.name %>">
+        </div>
+        <div class="form-group">
+            <label for="pcompany">Product Company:</label>
+            <input type="number" class="form-control" id="sage" name="sage" value="<%= student.age %>">
+        </div>
+        <div class="form-group">
+            <label for="price">Product Price:</label>
+            <input type="text" class="form-control" id="smajor" name="smajor" value="<%= student.major %>">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</main>
+
+
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+<%- include ../partials/footer.ejs %>
